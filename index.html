@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+  <meta property="og:url" content="URL OF THE WEBSITE" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>REALM</title>
+  <link rel="icon" href="./static/images/logo-realm.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">REALM: An MLLM-Agent Framework for Open-World Reasoning
+              Segmentation and Editing on 3D Gaussian Splatting</h1>
+            <div class="is-size-5 publication-authors">
+              <div style="color: #f14668">Submit to AAAI 2026</div>
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="" target="_blank">Anonymous Authors</a>
+              </span>
+              </span>
+              </span>
+            </div>
+
+
+            <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <!-- <span class="link-block">
+                        <a href="" target="_blank"
+                        class="external-link button is-normal is-rounded is-outlined is-info">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span> -->
+
+                  <!-- <span class="link-block">
+                    <a href="" target="_blank"
+                    class="external-link button is-normal is-rounded is-outlined is-success">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+
+                  <span class="link-block">
+                    <a href="https://github.com/AnonymousAuthor-REALM/REALM-Code" target="_blank"
+                    class="external-link button is-normal is-rounded is-outlined is-primary">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="" target="_blank"
+                  class="external-link button is-normal is-rounded is-outlined is-danger">
+                  <span class="icon">
+                    <i class="fab fa-google-drive"></i>
+                  </span>
+                  <span>Data (Soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+    <!-- Pipeline Section -->
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
+      <h3 class="title is-3">🔧 Framework Overview</h3>
+
+      <figure class="image is-16by9" style="display: flex; justify-content: center;">
+        <img src="static/images/MajorPipeline.png" alt="REALM Pipeline" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      </figure>
+      <p class="subtitle is-5 has-text-centered" style="margin-top: 3rem; margin-bottom: 5rem;">
+        TL;DR: REALM addresses a key challenge in 3D understanding-3D reasoning segmentation. REALM also supports language-guided 3D editing tasks includig removal, replacement and stylization.
+      </p>
+    </div>
+  </section>
+
+  <section class="section content-section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <h3 class="title is-3">👑 Abstract</h3>
+          <div class="has-text-justified">
+            <p>
+              Bridging the gap between complex human instructions and precise 3D object grounding remains a significant challenge in vision and robotics. 
+              Existing 3D segmentation methods often struggle to interpret ambiguous, reasoning-based instructions, 
+              while 2D vision-language models that excel at such reasoning lack intrinsic 3D spatial understanding. 
+              In this paper, we introduce <strong>REALM</strong>, an innovative MLLM-agent framework that enables open-world reasoning-based segmentation without requiring extensive 3D-specific post-training. 
+              We perform segmentation directly on 3D Gaussian Splatting representations, capitalizing on their ability to render photorealistic novel views that are highly suitable for MLLM comprehension. 
+              As directly feeding one or more rendered views to the MLLM can lead to high sensitivity to viewpoint selection, 
+              we propose a novel Global-to-Local Spatial Grounding strategy. Specifically, multiple global views are first fed into the MLLM agent in parallel for coarse-level localization, 
+              aggregating responses to robustly identify the target object. Then, several close-up novel views of the object are synthesized to perform fine-grained local segmentation, 
+              yielding accurate and consistent 3D masks. Extensive experiments show that REALM achieves remarkable performance in interpreting both explicit and implicit instructions across LERF, 3D-OVS, and our newly introduced REALM3D benchmarks. 
+              Furthermore, our agent framework seamlessly supports a range of 3D interaction tasks, including object removal, replacement, and style transfer, 
+              demonstrating its practical utility and versatility.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <h3 class="title is-3 has-text-centered">Anonymous Video (Open on YouTube if it does not play here)</h3>
+          <div style="display: flex; justify-content: center;">
+            <iframe width="1120" height="515" src="https://www.youtube.com/embed/VZsTL-xN_7c?si=55Es110g3gp_HSqL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <h2 class="subtitle"
+              style="margin-top:32px; text-align:justify; text-align-last:left; line-height:1.5;">
+            🏃 We propose <strong>REALM</strong>, an MLLM-Agent framework for 3D reasoning segmentation.
+            (Anonymous YouTube Link:
+            <a href="https://www.youtube.com/watch?v=VZsTL-xN_7c" target="_blank" rel="noopener noreferrer">Video</a>)
+          </h2>
+        </div>
+      </div>
+
+      <!-- HTML -->
+      <div class="hero-body teaser">
+        <div class="container">
+          <h3 class="title is-3 has-text-centered">Main Results on LERF Dataset</h3>
+          <div id="results-carousel" class="results-carousel">
+      
+            <!-- 1 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <!-- 左：原始视频 -->
+                <video
+                  src="static/videos/figurines/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <!-- 右：蓝色大象视频 -->
+                <video
+                  src="static/videos/figurines/video_blue elephant.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                There is a child who likes blue. What toy should I find to make her happy?
+              </h2>
+            </div>
+      
+            <!-- 2 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <video
+                  src="static/videos/figurines/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/figurines/video_green apple.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                The crisp, tart fruit known for its vibrant green skin and refreshing flavor.
+              </h2>
+            </div>
+      
+            <!-- 3 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <video
+                  src="static/videos/figurines/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/figurines/video_green toy chair.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                The toy chair that is closer to the red apple.
+              </h2>
+            </div>
+      
+            <!-- 4 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <video
+                  src="static/videos/figurines/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/figurines/video_red apple.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                The sweet, juicy fruit known for its bright red skin and crisp texture.
+              </h2>
+            </div>
+      
+            <!-- 5 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <video
+                  src="static/videos/figurines/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/figurines/video_rubber duck with red hat.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                Can you help me find the duck that is on the Rubic's cube?
+              </h2>
+            </div>
+      
+            <!-- 6 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <video
+                  src="static/videos/teatime/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/teatime/video_apple.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                The small, round fruit with shiny red skin and a crisp bite.
+              </h2>
+            </div>
+      
+            <!-- 7 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <video
+                  src="static/videos/teatime/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/teatime/video_bag.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                A little paper sack sits in the center, containing biscuits.
+              </h2>
+            </div>
+      
+            <!-- 8 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <video
+                  src="static/videos/teatime/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/teatime/video_milk cup.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                Which is the drink the teddy bear is holding?
+              </h2>
+            </div>
+      
+            <!-- 9 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <video
+                  src="static/videos/teatime/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/teatime/video_tea cup.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                A traditional beverage commonly enjoyed by Chinese people.
+              </h2>
+            </div>
+      
+          </div>
+
+          <!-- 添加间距 -->
+          <div style="margin-bottom: 4rem;"></div>
+
+
+          <h3 class="title is-3 has-text-centered">Main Results on 3D-OVS Dataset</h3>
+          <div id="results-carousel" class="results-carousel">
+      
+            <!-- 1 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <!-- 左：原始视频 -->
+                <video
+                  src="static/videos/covered_desk/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/covered_desk/video_canned chili sauce.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                What can add some spice to a meal?
+              </h2>
+            </div>
+      
+            <!-- 2 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <video
+                  src="static/videos/covered_desk/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/covered_desk/video_Dove body wash.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                Something that is used to clean oneself up.
+              </h2>
+            </div>
+      
+            <!-- 3 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <video
+                  src="static/videos/blue_sofa/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/blue_sofa/video_a bottle of perfume.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                The small, square-shaped bottle with a dark cap, containing a yellow liquid, often used for fragrance.
+              </h2>
+            </div>
+      
+            <!-- 4 -->
+            <div class="item">
+              <div class="media-container" style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+                <video
+                  src="static/videos/blue_sofa/video_ori.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+                <video
+                  src="static/videos/blue_sofa/video_sunglasses.mp4"
+                  autoplay muted loop
+                  class="media-content"
+                  style="max-width:300px; flex:1;"
+                ></video>
+              </div>
+              <h2 class="subtitle has-text-centered" style="margin:0 0 3rem;">
+                What is the accessory used to shield your eyes from the sun?
+              </h2>
+            </div>
+
+      
+          </div>
+        </div>
+      </div>
+      
+      
+  
+      
+    </div>
+  </section>
+
+
+    <!-- Pipeline Section -->
+    <section class="section">
+      <div class="container is-max-desktop has-text-centered">
+        <h3 class="title is-3">Benchmark: Our REALM3D Dataset</h3>
+  
+        <figure class="image is-16by9" style="display: flex; justify-content: center;">
+          <img src="static/images/REALM3D_show.png" alt="REALM Pipeline" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        </figure>
+        <p class="subtitle is-5 has-text-centered" style="margin-top: 35rem; margin-bottom: 10rem;">
+          We propose REALM3D dataset, which comprises 100+ scenes and 1k+ of implicit prompt-mask pairs.
+        </p>
+      </div>
+    </section>
+
+    <!-- Pipeline Section -->
+    <section class="section">
+      <div class="container is-max-desktop has-text-centered">
+        <h3 class="title is-3">Comparison Results on REALM3D</h3>
+  
+        <figure class="image is-16by9" style="display: flex; justify-content: center;">
+          <img src="static/images/com_realm3d.png" alt="REALM Pipeline" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        </figure>
+        <p class="subtitle is-5 has-text-centered" style="margin-top: 35rem; margin-bottom: 30rem;">
+          REALM outperforms previous methods.
+        </p>
+      </div>
+    </section>
+
+    <!-- Pipeline Section -->
+    <section class="section">
+      <div class="container is-max-desktop has-text-centered">
+        <h3 class="title is-3">Language-Guided 3D Editing</h3>
+  
+        <figure class="image is-16by9" style="display: flex; justify-content: center;">
+          <img src="static/images/edit_show.png" alt="REALM Pipeline" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        </figure>
+        <p class="subtitle is-5 has-text-centered" style="margin-top: 5rem; margin-bottom: 2rem;">
+          Once the object is grounded, we can perform a wide range of 3D editing tasks. 
+        </p>
+      </div>
+    </section>
+  <!-- Video carousel -->
+  <!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/videos/carousel2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <source src="static/videos/carousel3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+  <!-- End video carousel -->
+
+
+  <!-- Paper poster -->
+  <!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+  <!--End paper poster -->
+
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code></code></pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the
+              footer. <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
